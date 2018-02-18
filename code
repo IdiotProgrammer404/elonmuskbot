@@ -1,0 +1,88 @@
+#Importing files needed
+import discord
+from discord.ext.commands import Bot
+from discord.ext import commands
+import asyncio
+import random
+import time
+
+
+#Defining client
+Client = discord.Client()
+client = commands.Bot(command_prefix = "+")
+
+
+
+#Commands
+@client.event
+async def on_message(message):
+    #Tells user if Elon works
+    if message.content.upper().startswith("ELON YOU UP?"):
+        await client.send_message(message.channel, "Fully operational")
+    #Certify's Noiceness
+    if message.content.upper().startswith("NOICE"):
+        await client.send_message(message.channel, "Nice indeed")
+    #Defending his mother
+    if message.content.upper().startswith("UR MOM GEY"):
+        await client.send_message(message.channel, "No, your mother is gay")
+    #Who's gay?
+    if message.content.upper().startswith("WHO IS GAY ELON?"):
+        await client.send_message(message.channel, "Your mother")
+    if message.content.upper().startswith("WHO IS GEY ELON"):
+        await client.send_message(message.channel, "Your mother")
+    #Alien?
+    if message.content.upper().startswith("ARE YOU AN ALIEN ELON?"):
+        await client.send_message(message.channel, "No, I'm a hat salesman")
+    #InMuskWeTrust
+    if message.content.upper().startswith("WHO IS ELON MUSK?"):
+        await client.send_message(message.channel, "I'm Tony Stark basically")
+    #Server creation time
+    if message.content.upper().startswith("WHEN WAS THE SERVER MADE ELON?"):
+        await client.send_message(message.channel, "Monday July 3rd 2017")
+    #Server Owner
+    if message.content.upper().startswith("WHO MADE THE SERVER ELON?"):
+        await client.send_message(message.channel, "Alex Jones")
+    #Brings up things Elon has done
+    if message.content.upper().startswith("WHAT HAVE YOU DONE ELON?"):
+        messages = ["I made a tunnel", "I made a hat", "I made a flamethrower", "I made a rocket take of with a Tesla on it"]
+        await client.send_message(message.channel, random.choice(messages))
+    #Elon Quotes
+    if message.content.upper().startswith("ELON QUOTE"):
+        messages = ["I would like to die on Mars, just not on impact", "When something is important enough you do it, even if the odds are not in your favor", "It's ok to have eggs in one basket as long as you control what happens to that basket", "The first step is to establish that something is possible; then probability will occur", "I could either watch it happen or be a part of it", "We are going to exit the fossil fuel era, it is inevitable"]
+        await client.send_message(message.channel, random.choice(messages))
+    #ILY
+    if message.content.upper().startswith("I LOVE YOU ELON"):
+        userID = message.author.id
+        await client.send_message(message.channel, "I love you too <@%s> :heart:" % (userID))
+    #Test your Ping
+    if message.content.upper().startswith("ELON PING"):
+        userID = message.author.id
+        await client.send_message(message.channel, "<@%s> Pong! :ping_pong:" % (userID))
+    #EasterEgg1
+    if "Jacob Sartorius" in message.content:
+        await client.send_message(message.channel, "Jacob will be the first to die from my flamethrower")
+    if "jacob sartorius" in message.content:
+        await client.send_message(message.channel, "Jacob will be the first to die from my flamethrower")
+    if "JACOB SARTORIUS" in message.content:
+        await client.send_message(message.channel, "Jacob will be the first to die from my flamethrower")
+
+
+
+#Changes game that the bot is playing
+@client.event
+
+    
+
+
+#Tells me when Elon is ready
+@client.event
+async def on_ready ():
+    print('Logged in as')
+    print(client.user.name)
+    print('Ready to launch Tesla')
+    print('------')
+    await client.change_presence(game=discord.Game(name="with my flamethrower"))
+
+
+#Run Elon
+client.run(BOT.TOKEN)
